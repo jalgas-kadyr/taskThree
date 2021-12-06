@@ -11,7 +11,12 @@ CONTENT_TYPES = ["text", "audio", "document", "photo", "sticker", "video", "vide
 
 
 @bot.channel_post_handler(content_types=CONTENT_TYPES)
-def test(message):
+def getChannelMessage(message):
+    print("https://t.me/" + str(message.chat.username) + "/" + str(message.id))
+
+
+@bot.message_handler(content_types=CONTENT_TYPES)
+def getMessage(message):
     print("https://t.me/" + str(message.chat.username) + "/" + str(message.id))
 
 
